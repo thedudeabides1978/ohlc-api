@@ -11,7 +11,7 @@ def last_year_ohlcv(symbol: str):
             "Referer": "https://www.nasdaq.com"}
     params = {"assetclass":"stocks","fromdate":start,"todate":today,"limit":9999}
 
-    rows = requests.get(url, headers=hdrs, params=params, timeout=5, 30).json()\
+    rows = requests.get(url, headers=hdrs, params=params, timeout=60).json()\
                     ["data"]["tradesTable"]["rows"]
 
     df = (pd.DataFrame(rows)
